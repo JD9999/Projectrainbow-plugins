@@ -27,6 +27,7 @@ public class MyPlugin extends PluginBase
 		public static boolean Togglepotioneffect = false;
 		public static boolean Toggleclock = true;
 		String pluginDir = "plugins_mod" + File.separatorChar + "Rainbow Welcome";
+		public static double version = 3.2;
 		public static File file = null;
 		
 		public void onStartup(MC_Server argServer)
