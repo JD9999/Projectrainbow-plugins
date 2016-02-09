@@ -215,4 +215,26 @@ public class MyPlugin extends PluginBase
 				return;
 				}
 		}
+		public void onConsoleInput(String msg, MC_EventInfo ei){
+			if(msg.equalsIgnoreCase("colorcheckon")){
+				ei.isCancelled = true;
+				System.out.println("Toggling ColorDictionary checking on!");
+				check = true;
+			}
+			if(msg.equalsIgnoreCase("colorcheckoff")){
+				ei.isCancelled = true;
+				System.out.println("Toggleing ColorDictionary checking off!");
+				check = false;
+			}
+			if(msg.equalsIgnoreCase("colourcheckon")){
+				ei.isCancelled = true;
+				System.out.println("Toggling ColorDictionary checking on!");
+				check = true;
+			}
+			if(msg.equalsIgnoreCase("colourcheckoff")){
+				ei.isCancelled = true;
+				System.out.println("Toggleing ColorDictionary checking off!");
+				check = false;
+			}
+		}	
 	}
