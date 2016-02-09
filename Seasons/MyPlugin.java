@@ -82,7 +82,7 @@ public void onShutdown()
 public PluginInfo getPluginInfo() 
 { 
 	PluginInfo info = new PluginInfo();
-	info.description = "Minecraft has seasons: version 1.4 started";
+	info.description = "Minecraft has seasons: version 1.4b started";
 	return info;
 }
 public void onPlayerInput(MC_Player plr, String msg, MC_EventInfo ei)
@@ -90,22 +90,26 @@ public void onPlayerInput(MC_Player plr, String msg, MC_EventInfo ei)
 	if(ei.isCancelled) return;
 	
 	if(msg.equalsIgnoreCase("/goodon") && plr.isOp()){
+		ei.isCancelled = true;
 		plr.sendMessage("Toggling good mobs on");
 		Togglegoodoff = false;
 	}
 	
 	if(msg.equalsIgnoreCase("/goodoff") && plr.isOp()){
+		ei.isCancelled = true;
 		plr.sendMessage("Toggling good mobs of");
 		Togglegoodoff = true;
 	}
 	
 	if(msg.equalsIgnoreCase("/badon") && plr.isOp()){
+		ei.isCancelled = true;
 		plr.sendMessage("Toggling bad mobs on");
 		Togglebadoff = false;
 	}
 	
 	if(msg.equalsIgnoreCase("/badoff") && plr.isOp()){
-		plr.sendMessage("Toggling good mobs off");
+		ei.isCancelled = true;
+		plr.sendMessage("Toggling bad mobs off");
 		Togglebadoff = true;
 	}
 	
@@ -451,221 +455,187 @@ public void onAttemptEntitySpawn(MC_Entity ent, MC_EventInfo ei) {
 	else if(ent.getType() == MC_EntityType.BLAZE){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if(ent.getType() == MC_EntityType.CAVE_SPIDER){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 		}
 	else if(ent.getType() == MC_EntityType.CHICKEN){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if(ent.getType() == MC_EntityType.COW){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.CREEPER){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.ENDERDRAGON){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.ENDERMAN){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.ENDERMITE){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.GHAST){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.GIANT){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.GUARDIAN){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.HORSE){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.LAVA_SLIME){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.MUSHROOM_COW){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.OCELOT){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.PIG){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.PIG_ZOMBIE){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.RABBIT){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.SHEEP){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.SILVERFISH){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.SKELETON){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.SLIME){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.SNOWMAN){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.SPIDER){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.SQUID){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.VILLAGER){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.VILLAGER_GOLEM){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
-		}	
+		}
 	}
 	else if (ent.getType() == MC_EntityType.WITCH){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.WITHERBOSS){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if(ent.getType() == MC_EntityType.WOLF){
 		if(Togglegoodoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
 	}
 	else if (ent.getType() == MC_EntityType.ZOMBIE){
 		if(Togglebadoff){
 			ei.isCancelled = true;
-		}else{
-			ei.isCancelled = false;
 		}
+	}else{
+		if(isMob(ent))System.out.println("Unknown mob just spawned! Name: " + ent.getName());
 	}
 	}
+
+private boolean isMob(MC_Entity ent) {
+	if(ent.getType() == MC_EntityType.ARMOR_STAND)return false;
+	else if(ent.getType() == MC_EntityType.ARROW)return false;
+	else if(ent.getType() == MC_EntityType.BOAT)return false;
+	else if(ent.getType() == MC_EntityType.ENDER_CRYSTAL)return false;
+	else if(ent.getType() == MC_EntityType.EYE_OF_ENDER_SIGNAL)return false;
+	else if(ent.getType() == MC_EntityType.FALLING_SAND)return false;
+	else if(ent.getType() == MC_EntityType.FIREBALL)return false;
+	else if(ent.getType() == MC_EntityType.FIREWORK)return false;
+	else if(ent.getType() == MC_EntityType.FISHING_HOOK)return false;
+	else if(ent.getType() == MC_EntityType.HANGING)return false;
+	else if(ent.getType() == MC_EntityType.ITEM)return false;
+	else if(ent.getType() == MC_EntityType.MINECART)return false;
+	else if(ent.getType() == MC_EntityType.PRIMED_TNT)return false;
+	else if(ent.getType() == MC_EntityType.SMALL_FIREBALL)return false;
+	else if(ent.getType() == MC_EntityType.SNOWBALL)return false;
+	else if(ent.getType() == MC_EntityType.THROWN_EGG)return false;
+	else if(ent.getType() == MC_EntityType.THROWN_ENDERPEARL)return false;
+	else if(ent.getType() == MC_EntityType.THROWN_EXP_BOTTLE)return false;
+	else if(ent.getType() == MC_EntityType.THROWN_POTION)return false;
+	else if(ent.getType() == MC_EntityType.XP_ORB)return false;
+	
+	else if(ent.getType() == MC_EntityType.UNSPECIFIED)return true; // Don't know, console will say that
+	else return true;
+}
 
 int season;
 int seasonno;
