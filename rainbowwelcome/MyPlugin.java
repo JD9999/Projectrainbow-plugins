@@ -30,63 +30,35 @@ public class MyPlugin extends PluginBase
 		public static double version = 3.2;
 		public static File file = null;
 		
-		public void onStartup(MC_Server argServer)
-		
-		{
-			new File(pluginDir).mkdir();
+		public void onStartup(MC_Server argServer){
 			System.out.println("Plugin starting! Lets hope it works! :)");
+			new File(pluginDir).mkdir();
 			server = argServer;
-			
 			try{
-				File dir = new File(pluginDir + File.separatorChar + "welcomemessage.txt");
-				if (dir.createNewFile()){
+				File welcomemessage = new File(pluginDir + File.separatorChar + "welcomemessage.txt");
+				if (welcomemessage.createNewFile()){
 					System.out.println("The file welcomemessage.txt is created!");
-					FileWriter fw = new FileWriter(dir);
+					FileWriter fw = new FileWriter(welcomemessage);
 					BufferedWriter bw = new BufferedWriter(fw);
 					bw.write("Welcome to the server!");
 					bw.close();
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("welcomemessage.txt already created");
+					System.out.println("welcomemessage.txt already exists!");
 				}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			String welmessage;
-			try{
-				reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "welcomemessage.txt"));
-				while ((welmessage = reader.readLine()) != null) {
-					System.out.println(welmessage);
-				}
-			
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (reader != null)reader.close();
-				} catch (IOException ex) {
-					ex.printStackTrace();
-				}
-			}
-			try{
-				File dir = new File(pluginDir + File.separatorChar + "dimensionmessage.txt");
-				if (dir.createNewFile()){
+				File dimensionmessage = new File(pluginDir + File.separatorChar + "dimensionmessage.txt");
+				if (dimensionmessage.createNewFile()){
 					System.out.println("The file dimensionmessage.txt is created!");
-					FileWriter fw = new FileWriter(dir);
+					FileWriter fw = new FileWriter(dimensionmessage);
 					BufferedWriter bw = new BufferedWriter(fw);
 					bw.write("You switched dimensions!");
 					bw.close();
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("dimensionmessage.txt aready created.");
+					System.out.println("dimensionmessage.txt aready exists!");
 				}
-				}
-					catch (IOException prob){
-						prob.printStackTrace();
-					}
-			try{
 				File bedwriter = new File(pluginDir + File.separatorChar + "bedentermessage.txt");
 				if (bedwriter.createNewFile()){
 					System.out.println("The file bedmessage.txt is created!");
@@ -97,30 +69,20 @@ public class MyPlugin extends PluginBase
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("bedentermessage.txt aready created.");
+					System.out.println("bedentermessage.txt aready exists!");
 				}
-				
-			}catch (IOException prob){
-						prob.printStackTrace();
-					}
-			try{
-				File bedwriter = new File(pluginDir + File.separatorChar + "bedexitmessage.txt");
-				if (bedwriter.createNewFile()){
+				File bedexitwriter = new File(pluginDir + File.separatorChar + "bedexitmessage.txt");
+				if (bedexitwriter.createNewFile()){
 					System.out.println("The file bedexitmessage.txt is created!");
-					FileWriter fw = new FileWriter(bedwriter);
+					FileWriter fw = new FileWriter(bedexitwriter);
 					BufferedWriter bw = new BufferedWriter(fw);
 					bw.write("Have a good day!");
 					bw.close();
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("bedexitmessage.txt aready created.");
+					System.out.println("bedexitmessage.txt aready exists!");
 				}
-				}
-					catch (IOException prob){
-						prob.printStackTrace();
-					}
-			try{
 				File deathwriter = new File(pluginDir + File.separatorChar + "deathmessage.txt");
 				if (deathwriter.createNewFile()){
 					System.out.println("The file deathmessage.txt is created!");
@@ -131,13 +93,8 @@ public class MyPlugin extends PluginBase
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("deathmessage.txt aready created.");
+					System.out.println("deathmessage.txt aready exists!");
 				}
-				}
-					catch (IOException prob){
-						prob.printStackTrace();
-					}
-			try{
 				File animalwriter = new File(pluginDir + File.separatorChar + "animalmessage.txt");
 				if (animalwriter.createNewFile()){
 					System.out.println("The file animalmessage.txt is created!");
@@ -148,30 +105,20 @@ public class MyPlugin extends PluginBase
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("animalmessage.txt aready created.");
+					System.out.println("animalmessage.txt aready exists!");
 				}
-				}
-					catch (IOException prob){
-						prob.printStackTrace();
-					}
-			try{
-				File animalwriter = new File(pluginDir + File.separatorChar + "respawnmessage.txt");
-				if (animalwriter.createNewFile()){
+				File respawnwriter = new File(pluginDir + File.separatorChar + "respawnmessage.txt");
+				if (respawnwriter.createNewFile()){
 					System.out.println("The file respawnmessage.txt is created!");
-					FileWriter fw = new FileWriter(animalwriter);
+					FileWriter fw = new FileWriter(respawnwriter);
 					BufferedWriter bw = new BufferedWriter(fw);
 					bw.write("Respawning is the right option!");
 					bw.close();
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("respawnmessage.txt aready created.");
+					System.out.println("respawnmessage.txt aready exists!");
 				}
-				}
-					catch (IOException prob){
-						prob.printStackTrace();
-					}
-			try{
 				File hanging = new File(pluginDir + File.separatorChar + "attackhangingmessage.txt");
 				if (hanging.createNewFile()){
 					System.out.println("The file attackhangingmessage.txt is created!");
@@ -182,12 +129,8 @@ public class MyPlugin extends PluginBase
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("attackhangingmessage.txt already created");
+					System.out.println("attackhangingmessage.txt already exists!");
 				}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			try{
 				File teleport = new File(pluginDir + File.separatorChar + "teleportmessage.txt");
 				if (teleport.createNewFile()){
 					System.out.println("The file teleportmessage.txt is created!");
@@ -198,12 +141,8 @@ public class MyPlugin extends PluginBase
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("teleportmessage.txt already created");
+					System.out.println("teleportmessage.txt already exists!");
 				}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			try{
 				File potion = new File(pluginDir + File.separatorChar + "potioneffectmessage.txt");
 				if (potion.createNewFile()){
 					System.out.println("The file potioneffectmessage.txt is created!");
@@ -214,11 +153,44 @@ public class MyPlugin extends PluginBase
 					
 					System.out.println("File Written");
 				}else{
-					System.out.println("potioneffectmessage.txt already created");
+					System.out.println("potioneffectmessage.txt already exists!");
 				}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+			File ver = new File(pluginDir + File.separator + "simplicitymode.txt");
+			if (ver.createNewFile()){
+				System.out.println("The file simplicitymode.txt is created!");
+				FileWriter fw = new FileWriter(ver);
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write("3.2");
+				bw.close();
+				
+				System.out.println("File Written");
+			}else{
+				System.out.println("simplicitymode.txt already exists!");
+				BufferedReader reader = new BufferedReader(new FileReader(ver));
+				String douoble = reader.readLine();	
+	    			double d = Double.parseDouble(douoble);
+	    			String s = String.valueOf(d);
+	    				String decimal = s.substring(2, s.length());
+	    			if(d > 3.2){
+	    				System.out.println("You can't go into the future!");
+	    				System.out.println("The biggest version is 3.2");
+	    			}else if(d < 0.0){
+	    				System.out.println("The smallest version is 0.1!");
+	    				//Checks if there is only one decimal point
+	    			}else if(decimal.length() == 1){
+	    				version = d;
+	    				System.out.println("New simplicity mode version is: " + version);
+	    				BufferedWriter writer = new BufferedWriter(new FileWriter(ver));
+	    				writer.write(String.valueOf(version));
+	    				writer.close();
+	    			}else{
+	    				System.out.println("You can only specify a number with one decimal point! You can use .0 to specify a major version only!");
+	    			}
+	    			reader.close();
+			}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			}
 		public void onShutdown()
 		{
@@ -234,61 +206,19 @@ public class MyPlugin extends PluginBase
 		public void onPlayerJoin(MC_Player plr){
 			if(Togglewelmessage){
 				System.out.println("Welcome message is disabled!");
+			}else if(version <0.2){
+				System.out.println("Simplicity mode is not up to the welcome message!");
 			}else{
-
-			String logMsg = String.format("%s LOGGED IN", plr.getName());
-			System.out.println("Player joining " + logMsg);
 			String welmessage;
 			try{
 				reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "welcomemessage.txt"));
 				while ((welmessage = reader.readLine()) != null) {
-					String playermessage = welmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-					if(welmessage.startsWith("&b,")){
-						plr.sendMessage(ChatColor.AQUA + playermessage);
-					}else if (welmessage.startsWith("&0,")){
-						plr.sendMessage(ChatColor.BLACK + playermessage);
-					}else if (welmessage.startsWith("&9,")){
-						plr.sendMessage(ChatColor.BLUE + playermessage);
-					}else if (welmessage.startsWith("&l,")){
-						plr.sendMessage(ChatColor.BOLD + playermessage);
-					}else if (welmessage.startsWith("&3,")){
-						plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-					}else if (welmessage.startsWith("&1,")){
-						plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-					}else if (welmessage.startsWith("&8,")){
-						plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-					}else if (welmessage.startsWith("&2,")){
-						plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-					}else if (welmessage.startsWith("&5,")){
-						plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-					}else if (welmessage.startsWith("&4,")){
-						plr.sendMessage(ChatColor.DARK_RED + playermessage);
-					}else if (welmessage.startsWith("&6,")){
-						plr.sendMessage(ChatColor.GOLD + playermessage);
-					}else if (welmessage.startsWith("&7,")){
-						plr.sendMessage(ChatColor.GRAY + playermessage);
-					}else if (welmessage.startsWith("&a,")){
-						plr.sendMessage(ChatColor.GREEN + playermessage);
-					}else if (welmessage.startsWith("&o,")){
-						plr.sendMessage(ChatColor.ITALIC + playermessage);
-					}else if (welmessage.startsWith("&d,")){
-						plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-					}else if (welmessage.startsWith("&k,")){
-						plr.sendMessage(ChatColor.MAGIC + playermessage);
-					}else if (welmessage.startsWith("&c,")){
-						plr.sendMessage(ChatColor.RED + playermessage);
-					}else if (welmessage.startsWith("&m,")){
-						plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-					}else if (welmessage.startsWith("&n,")){
-						plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-					}else if (welmessage.startsWith("&f,")){
-						plr.sendMessage(ChatColor.WHITE + playermessage);
-					}else if (welmessage.startsWith("&e,")){
-						plr.sendMessage(ChatColor.YELLOW + playermessage);
-					}else{
-						plr.sendMessage(welmessage);
-					}
+					String playermessage = welmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+					String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+					plr.sendMessage(colouredformattedmessage);
+					if(Toggleclock){
 					plr.sendMessage("The current time is: " + getDate());
+					}
 				}
 			
 			} catch (IOException e) {
@@ -307,57 +237,16 @@ public class MyPlugin extends PluginBase
 		{
 			if(Togglerespawn){
 				System.out.println("Respawn message is toggled off!");
+			}else if(version <2.1){
+				System.out.println("Simplicity mode is not up to the respawn message!");
 			}else{
 			 String respawnmessage;
 			 try{
 					reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "respawnmessage.txt"));
 					while ((respawnmessage = reader.readLine()) != null) {
-						String playermessage = respawnmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-						if(respawnmessage.startsWith("&b,")){
-							plr.sendMessage(ChatColor.AQUA + playermessage);
-						}else if (respawnmessage.startsWith("&0,")){
-							plr.sendMessage(ChatColor.BLACK + playermessage);
-						}else if (respawnmessage.startsWith("&9,")){
-							plr.sendMessage(ChatColor.BLUE + playermessage);
-						}else if (respawnmessage.startsWith("&l,")){
-							plr.sendMessage(ChatColor.BOLD + playermessage);
-						}else if (respawnmessage.startsWith("&3,")){
-							plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-						}else if (respawnmessage.startsWith("&1,")){
-							plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-						}else if (respawnmessage.startsWith("&8,")){
-							plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-						}else if (respawnmessage.startsWith("&2,")){
-							plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-						}else if (respawnmessage.startsWith("&5,")){
-							plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-						}else if (respawnmessage.startsWith("&4,")){
-							plr.sendMessage(ChatColor.DARK_RED + playermessage);
-						}else if (respawnmessage.startsWith("&6,")){
-							plr.sendMessage(ChatColor.GOLD + playermessage);
-						}else if (respawnmessage.startsWith("&7,")){
-							plr.sendMessage(ChatColor.GRAY + playermessage);
-						}else if (respawnmessage.startsWith("&a,")){
-							plr.sendMessage(ChatColor.GREEN + playermessage);
-						}else if (respawnmessage.startsWith("&o,")){
-							plr.sendMessage(ChatColor.ITALIC + playermessage);
-						}else if (respawnmessage.startsWith("&d,")){
-							plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-						}else if (respawnmessage.startsWith("&k,")){
-							plr.sendMessage(ChatColor.MAGIC + playermessage);
-						}else if (respawnmessage.startsWith("&c,")){
-							plr.sendMessage(ChatColor.RED + playermessage);
-						}else if (respawnmessage.startsWith("&m,")){
-							plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-						}else if (respawnmessage.startsWith("&n,")){
-							plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-						}else if (respawnmessage.startsWith("&f,")){
-							plr.sendMessage(ChatColor.WHITE + playermessage);
-						}else if (respawnmessage.startsWith("&e,")){
-							plr.sendMessage(ChatColor.YELLOW + playermessage);
-						}else{
-							plr.sendMessage(respawnmessage);
-						}
+						String playermessage = respawnmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+						String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+						plr.sendMessage(colouredformattedmessage);
 					}
 				
 				} catch (IOException e) {
@@ -375,57 +264,16 @@ public class MyPlugin extends PluginBase
 			{
 				if(Toggledimension){
 					System.out.println("Dimension message is disabled!");
+				}else if(version <0.6){
+					System.out.println("Simplicity mode is not up to the dimension message!");
 				}else{
 				 String dimmessage;
 				 try{
 						reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "dimensionmessage.txt"));
 						while ((dimmessage = reader.readLine()) != null) {
-							String playermessage = dimmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-							if(dimmessage.startsWith("&b,")){
-								plr.sendMessage(ChatColor.AQUA + playermessage);
-							}else if (dimmessage.startsWith("&0,")){
-								plr.sendMessage(ChatColor.BLACK + playermessage);
-							}else if (dimmessage.startsWith("&9,")){
-								plr.sendMessage(ChatColor.BLUE + playermessage);
-							}else if (dimmessage.startsWith("&l,")){
-								plr.sendMessage(ChatColor.BOLD + playermessage);
-							}else if (dimmessage.startsWith("&3,")){
-								plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-							}else if (dimmessage.startsWith("&1,")){
-								plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-							}else if (dimmessage.startsWith("&8,")){
-								plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-							}else if (dimmessage.startsWith("&2,")){
-								plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-							}else if (dimmessage.startsWith("&5,")){
-								plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-							}else if (dimmessage.startsWith("&4,")){
-								plr.sendMessage(ChatColor.DARK_RED + playermessage);
-							}else if (dimmessage.startsWith("&6,")){
-								plr.sendMessage(ChatColor.GOLD + playermessage);
-							}else if (dimmessage.startsWith("&7,")){
-								plr.sendMessage(ChatColor.GRAY + playermessage);
-							}else if (dimmessage.startsWith("&a,")){
-								plr.sendMessage(ChatColor.GREEN + playermessage);
-							}else if (dimmessage.startsWith("&o,")){
-								plr.sendMessage(ChatColor.ITALIC + playermessage);
-							}else if (dimmessage.startsWith("&d,")){
-								plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-							}else if (dimmessage.startsWith("&k,")){
-								plr.sendMessage(ChatColor.MAGIC + playermessage);
-							}else if (dimmessage.startsWith("&c,")){
-								plr.sendMessage(ChatColor.RED + playermessage);
-							}else if (dimmessage.startsWith("&m,")){
-								plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-							}else if (dimmessage.startsWith("&n,")){
-								plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-							}else if (dimmessage.startsWith("&f,")){
-								plr.sendMessage(ChatColor.WHITE + playermessage);
-							}else if (dimmessage.startsWith("&e,")){
-								plr.sendMessage(ChatColor.YELLOW + playermessage);
-							}else{
-								plr.sendMessage(dimmessage);
-							}
+							String playermessage = dimmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+							String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+							plr.sendMessage(colouredformattedmessage);
 						}
 					
 					} catch (IOException e) {
@@ -443,57 +291,16 @@ public class MyPlugin extends PluginBase
 				{	
 						 if(Togglebedenter){
 							 System.out.println("Bed messages are disabled!");
-						 }else{
+						 }else if(version <0.10){
+								System.out.println("Simplicity mode is not up to the bed enter message!");
+							}else{
 						 String bedentermessage;
 						 try{
 								reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "bedentermessage.txt"));
 								while ((bedentermessage = reader.readLine()) != null) {
-									String playermessage = bedentermessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-									if(bedentermessage.startsWith("&b,")){
-										plr.sendMessage(ChatColor.AQUA + playermessage);
-									}else if (bedentermessage.startsWith("&0,")){
-										plr.sendMessage(ChatColor.BLACK + playermessage);
-									}else if (bedentermessage.startsWith("&9,")){
-										plr.sendMessage(ChatColor.BLUE + playermessage);
-									}else if (bedentermessage.startsWith("&l,")){
-										plr.sendMessage(ChatColor.BOLD + playermessage);
-									}else if (bedentermessage.startsWith("&3,")){
-										plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-									}else if (bedentermessage.startsWith("&1,")){
-										plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-									}else if (bedentermessage.startsWith("&8,")){
-										plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-									}else if (bedentermessage.startsWith("&2,")){
-										plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-									}else if (bedentermessage.startsWith("&5,")){
-										plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-									}else if (bedentermessage.startsWith("&4,")){
-										plr.sendMessage(ChatColor.DARK_RED + playermessage);
-									}else if (bedentermessage.startsWith("&6,")){
-										plr.sendMessage(ChatColor.GOLD + playermessage);
-									}else if (bedentermessage.startsWith("&7,")){
-										plr.sendMessage(ChatColor.GRAY + playermessage);
-									}else if (bedentermessage.startsWith("&a,")){
-										plr.sendMessage(ChatColor.GREEN + playermessage);
-									}else if (bedentermessage.startsWith("&o,")){
-										plr.sendMessage(ChatColor.ITALIC + playermessage);
-									}else if (bedentermessage.startsWith("&d,")){
-										plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-									}else if (bedentermessage.startsWith("&k,")){
-										plr.sendMessage(ChatColor.MAGIC + playermessage);
-									}else if (bedentermessage.startsWith("&c,")){
-										plr.sendMessage(ChatColor.RED + playermessage);
-									}else if (bedentermessage.startsWith("&m,")){
-										plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-									}else if (bedentermessage.startsWith("&n,")){
-										plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-									}else if (bedentermessage.startsWith("&f,")){
-										plr.sendMessage(ChatColor.WHITE + playermessage);
-									}else if (bedentermessage.startsWith("&e,")){
-										plr.sendMessage(ChatColor.YELLOW + playermessage);
-									}else{
-										plr.sendMessage(bedentermessage);
-									}
+									String playermessage = bedentermessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+									String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+									plr.sendMessage(colouredformattedmessage);
 								}
 							
 							} catch (IOException e) {
@@ -512,57 +319,16 @@ public class MyPlugin extends PluginBase
 					{
 							  if(Togglebedexit){
 								 System.out.println("Bed messages are disabled!");
-							 }else{
+							 }else if(version <0.10){
+									System.out.println("Simplicity mode is not up to the bed exit message!");
+								}else{
 							 String bedexitmessage;
 							 try{
 									reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "bedexitmessage.txt"));
 									while ((bedexitmessage = reader.readLine()) != null) {
-										String playermessage = bedexitmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-										if(bedexitmessage.startsWith("&b,")){
-											plr.sendMessage(ChatColor.AQUA + playermessage);
-										}else if (bedexitmessage.startsWith("&0,")){
-											plr.sendMessage(ChatColor.BLACK + playermessage);
-										}else if (bedexitmessage.startsWith("&9,")){
-											plr.sendMessage(ChatColor.BLUE + playermessage);
-										}else if (bedexitmessage.startsWith("&l,")){
-											plr.sendMessage(ChatColor.BOLD + playermessage);
-										}else if (bedexitmessage.startsWith("&3,")){
-											plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-										}else if (bedexitmessage.startsWith("&1,")){
-											plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-										}else if (bedexitmessage.startsWith("&8,")){
-											plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-										}else if (bedexitmessage.startsWith("&2,")){
-											plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-										}else if (bedexitmessage.startsWith("&5,")){
-											plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-										}else if (bedexitmessage.startsWith("&4,")){
-											plr.sendMessage(ChatColor.DARK_RED + playermessage);
-										}else if (bedexitmessage.startsWith("&6,")){
-											plr.sendMessage(ChatColor.GOLD + playermessage);
-										}else if (bedexitmessage.startsWith("&7,")){
-											plr.sendMessage(ChatColor.GRAY + playermessage);
-										}else if (bedexitmessage.startsWith("&a,")){
-											plr.sendMessage(ChatColor.GREEN + playermessage);
-										}else if (bedexitmessage.startsWith("&o,")){
-											plr.sendMessage(ChatColor.ITALIC + playermessage);
-										}else if (bedexitmessage.startsWith("&d,")){
-											plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-										}else if (bedexitmessage.startsWith("&k,")){
-											plr.sendMessage(ChatColor.MAGIC + playermessage);
-										}else if (bedexitmessage.startsWith("&c,")){
-											plr.sendMessage(ChatColor.RED + playermessage);
-										}else if (bedexitmessage.startsWith("&m,")){
-											plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-										}else if (bedexitmessage.startsWith("&n,")){
-											plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-										}else if (bedexitmessage.startsWith("&f,")){
-											plr.sendMessage(ChatColor.WHITE + playermessage);
-										}else if (bedexitmessage.startsWith("&e,")){
-											plr.sendMessage(ChatColor.YELLOW + playermessage);
-										}else{
-											plr.sendMessage(bedexitmessage);
-										}
+										String playermessage = bedexitmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+										String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+										plr.sendMessage(colouredformattedmessage);
 									}
 								
 								} catch (IOException e) {
@@ -580,7 +346,9 @@ public class MyPlugin extends PluginBase
 					{ 
 						if(Toggleanidamage){
 							 System.out.println("Animal messages are disabled!");
-						 }else{
+						 }else if(version <2.1){
+								System.out.println("Simplicity mode is not up to the animal message!");
+							}else{
 							 if(ent.getType() == MC_EntityType.BAT){
 								 AnimalMessage(plr, ent);
 						 }
@@ -623,58 +391,17 @@ public class MyPlugin extends PluginBase
 					{
 						if(Toggleplrdeath){
 							System.out.println("Player death messages are disabled!");
+						}else if(version <0.3){
+							System.out.println("Simplicity mode is not up to the death message!");
 						}else{
 						System.out.println("A player has just died. Your custom message has been sent to them.");
 						String deathmessage;
 						try{
 							reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "deathmessage.txt"));
 							while ((deathmessage = reader.readLine()) != null) {
-								String playermessage = deathmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-								if(deathmessage.startsWith("&b,")){
-									plr.sendMessage(ChatColor.AQUA + playermessage);
-								}else if (deathmessage.startsWith("&0,")){
-									plr.sendMessage(ChatColor.BLACK + playermessage);
-								}else if (deathmessage.startsWith("&9,")){
-									plr.sendMessage(ChatColor.BLUE + playermessage);
-								}else if (deathmessage.startsWith("&l,")){
-									plr.sendMessage(ChatColor.BOLD + playermessage);
-								}else if (deathmessage.startsWith("&3,")){
-									plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-								}else if (deathmessage.startsWith("&1,")){
-									plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-								}else if (deathmessage.startsWith("&8,")){
-									plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-								}else if (deathmessage.startsWith("&2,")){
-									plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-								}else if (deathmessage.startsWith("&5,")){
-									plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-								}else if (deathmessage.startsWith("&4,")){
-									plr.sendMessage(ChatColor.DARK_RED + playermessage);
-								}else if (deathmessage.startsWith("&6,")){
-									plr.sendMessage(ChatColor.GOLD + playermessage);
-								}else if (deathmessage.startsWith("&7,")){
-									plr.sendMessage(ChatColor.GRAY + playermessage);
-								}else if (deathmessage.startsWith("&a,")){
-									plr.sendMessage(ChatColor.GREEN + playermessage);
-								}else if (deathmessage.startsWith("&o,")){
-									plr.sendMessage(ChatColor.ITALIC + playermessage);
-								}else if (deathmessage.startsWith("&d,")){
-									plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-								}else if (deathmessage.startsWith("&k,")){
-									plr.sendMessage(ChatColor.MAGIC + playermessage);
-								}else if (deathmessage.startsWith("&c,")){
-									plr.sendMessage(ChatColor.RED + playermessage);
-								}else if (deathmessage.startsWith("&m,")){
-									plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-								}else if (deathmessage.startsWith("&n,")){
-									plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-								}else if (deathmessage.startsWith("&f,")){
-									plr.sendMessage(ChatColor.WHITE + playermessage);
-								}else if (deathmessage.startsWith("&e,")){
-									plr.sendMessage(ChatColor.YELLOW + playermessage);
-								}else{
-									plr.sendMessage(deathmessage);
-								}
+								String playermessage = deathmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+								String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+								plr.sendMessage(colouredformattedmessage);
 							}
 						
 						} catch (IOException e) {
@@ -691,57 +418,16 @@ public class MyPlugin extends PluginBase
 					public void onAttemptDamageHangingEntity(MC_Player plr, MC_Location loc, MC_HangingEntityType entType, MC_EventInfo ei)  {
 						if(Togglehanging){
 							System.out.println("Attack hanging entity are disabled!");
+						}else if(version <2.8){
+							System.out.println("Simplicity mode is not up to the hanging entity message!");
 						}else{
 						String attackhangingmessage;
 						try{
 							reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "attackhangingmessage.txt"));
 							while ((attackhangingmessage = reader.readLine()) != null) {
-								String playermessage = attackhangingmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-								if(attackhangingmessage.startsWith("&b,")){
-									plr.sendMessage(ChatColor.AQUA + playermessage);
-								}else if (attackhangingmessage.startsWith("&0,")){
-									plr.sendMessage(ChatColor.BLACK + playermessage);
-								}else if (attackhangingmessage.startsWith("&9,")){
-									plr.sendMessage(ChatColor.BLUE + playermessage);
-								}else if (attackhangingmessage.startsWith("&l,")){
-									plr.sendMessage(ChatColor.BOLD + playermessage);
-								}else if (attackhangingmessage.startsWith("&3,")){
-									plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-								}else if (attackhangingmessage.startsWith("&1,")){
-									plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-								}else if (attackhangingmessage.startsWith("&8,")){
-									plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-								}else if (attackhangingmessage.startsWith("&2,")){
-									plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-								}else if (attackhangingmessage.startsWith("&5,")){
-									plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-								}else if (attackhangingmessage.startsWith("&4,")){
-									plr.sendMessage(ChatColor.DARK_RED + playermessage);
-								}else if (attackhangingmessage.startsWith("&6,")){
-									plr.sendMessage(ChatColor.GOLD + playermessage);
-								}else if (attackhangingmessage.startsWith("&7,")){
-									plr.sendMessage(ChatColor.GRAY + playermessage);
-								}else if (attackhangingmessage.startsWith("&a,")){
-									plr.sendMessage(ChatColor.GREEN + playermessage);
-								}else if (attackhangingmessage.startsWith("&o,")){
-									plr.sendMessage(ChatColor.ITALIC + playermessage);
-								}else if (attackhangingmessage.startsWith("&d,")){
-									plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-								}else if (attackhangingmessage.startsWith("&k,")){
-									plr.sendMessage(ChatColor.MAGIC + playermessage);
-								}else if (attackhangingmessage.startsWith("&c,")){
-									plr.sendMessage(ChatColor.RED + playermessage);
-								}else if (attackhangingmessage.startsWith("&m,")){
-									plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-								}else if (attackhangingmessage.startsWith("&n,")){
-									plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-								}else if (attackhangingmessage.startsWith("&f,")){
-									plr.sendMessage(ChatColor.WHITE + playermessage);
-								}else if (attackhangingmessage.startsWith("&e,")){
-									plr.sendMessage(ChatColor.YELLOW + playermessage);
-								}else{
-									plr.sendMessage(attackhangingmessage);
-								}
+								String playermessage = attackhangingmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+								String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+								plr.sendMessage(colouredformattedmessage);
 							}
 						
 						} catch (IOException e) {
@@ -758,57 +444,16 @@ public class MyPlugin extends PluginBase
 					public void onAttemptPlayerTeleport(MC_Player plr, MC_Location loc, MC_EventInfo ei)  {
 						if(Toggleteleport){
 							System.out.println("Teleport messages are disabled!");
+						}else if(version <2.8){
+							System.out.println("Simplicity mode is not up to the teleport message!");
 						}else{
 						String teleportmessage;
 						try{
 							reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "teleportmessage.txt"));
 							while ((teleportmessage = reader.readLine()) != null) {
-								String playermessage = teleportmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-								if(teleportmessage.startsWith("&b,")){
-									plr.sendMessage(ChatColor.AQUA + playermessage);
-								}else if (teleportmessage.startsWith("&0,")){
-									plr.sendMessage(ChatColor.BLACK + playermessage);
-								}else if (teleportmessage.startsWith("&9,")){
-									plr.sendMessage(ChatColor.BLUE + playermessage);
-								}else if (teleportmessage.startsWith("&l,")){
-									plr.sendMessage(ChatColor.BOLD + playermessage);
-								}else if (teleportmessage.startsWith("&3,")){
-									plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-								}else if (teleportmessage.startsWith("&1,")){
-									plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-								}else if (teleportmessage.startsWith("&8,")){
-									plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-								}else if (teleportmessage.startsWith("&2,")){
-									plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-								}else if (teleportmessage.startsWith("&5,")){
-									plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-								}else if (teleportmessage.startsWith("&4,")){
-									plr.sendMessage(ChatColor.DARK_RED + playermessage);
-								}else if (teleportmessage.startsWith("&6,")){
-									plr.sendMessage(ChatColor.GOLD + playermessage);
-								}else if (teleportmessage.startsWith("&7,")){
-									plr.sendMessage(ChatColor.GRAY + playermessage);
-								}else if (teleportmessage.startsWith("&a,")){
-									plr.sendMessage(ChatColor.GREEN + playermessage);
-								}else if (teleportmessage.startsWith("&o,")){
-									plr.sendMessage(ChatColor.ITALIC + playermessage);
-								}else if (teleportmessage.startsWith("&d,")){
-									plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-								}else if (teleportmessage.startsWith("&k,")){
-									plr.sendMessage(ChatColor.MAGIC + playermessage);
-								}else if (teleportmessage.startsWith("&c,")){
-									plr.sendMessage(ChatColor.RED + playermessage);
-								}else if (teleportmessage.startsWith("&m,")){
-									plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-								}else if (teleportmessage.startsWith("&n,")){
-									plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-								}else if (teleportmessage.startsWith("&f,")){
-									plr.sendMessage(ChatColor.WHITE + playermessage);
-								}else if (teleportmessage.startsWith("&e,")){
-									plr.sendMessage(ChatColor.YELLOW + playermessage);
-								}else{
-									plr.sendMessage(teleportmessage);
-								}
+								String playermessage = teleportmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+								String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+								plr.sendMessage(colouredformattedmessage);
 							}
 						
 						} catch (IOException e) {
@@ -825,57 +470,16 @@ public class MyPlugin extends PluginBase
 					public void onAttemptPotionEffect(MC_Player plr, MC_PotionEffectType potionType, MC_EventInfo ei){
 						if(Togglepotioneffect){
 							System.out.println("Potion effects messages are disabled!");
+						}else if(version <2.8){
+							System.out.println("Simplicity mode is not up to the potion effect message!");
 						}else{
 						String potioneffectmessage;
 						try{
 							reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "potionmessage.txt"));
 							while ((potioneffectmessage = reader.readLine()) != null) {
-								String playermessage = potioneffectmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-								if(potioneffectmessage.startsWith("&b,")){
-									plr.sendMessage(ChatColor.AQUA + playermessage);
-								}else if (potioneffectmessage.startsWith("&0,")){
-									plr.sendMessage(ChatColor.BLACK + playermessage);
-								}else if (potioneffectmessage.startsWith("&9,")){
-									plr.sendMessage(ChatColor.BLUE + playermessage);
-								}else if (potioneffectmessage.startsWith("&l,")){
-									plr.sendMessage(ChatColor.BOLD + playermessage);
-								}else if (potioneffectmessage.startsWith("&3,")){
-									plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-								}else if (potioneffectmessage.startsWith("&1,")){
-									plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-								}else if (potioneffectmessage.startsWith("&8,")){
-									plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-								}else if (potioneffectmessage.startsWith("&2,")){
-									plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-								}else if (potioneffectmessage.startsWith("&5,")){
-									plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-								}else if (potioneffectmessage.startsWith("&4,")){
-									plr.sendMessage(ChatColor.DARK_RED + playermessage);
-								}else if (potioneffectmessage.startsWith("&6,")){
-									plr.sendMessage(ChatColor.GOLD + playermessage);
-								}else if (potioneffectmessage.startsWith("&7,")){
-									plr.sendMessage(ChatColor.GRAY + playermessage);
-								}else if (potioneffectmessage.startsWith("&a,")){
-									plr.sendMessage(ChatColor.GREEN + playermessage);
-								}else if (potioneffectmessage.startsWith("&o,")){
-									plr.sendMessage(ChatColor.ITALIC + playermessage);
-								}else if (potioneffectmessage.startsWith("&d,")){
-									plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-								}else if (potioneffectmessage.startsWith("&k,")){
-									plr.sendMessage(ChatColor.MAGIC + playermessage);
-								}else if (potioneffectmessage.startsWith("&c,")){
-									plr.sendMessage(ChatColor.RED + playermessage);
-								}else if (potioneffectmessage.startsWith("&m,")){
-									plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-								}else if (potioneffectmessage.startsWith("&n,")){
-									plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-								}else if (potioneffectmessage.startsWith("&f,")){
-									plr.sendMessage(ChatColor.WHITE + playermessage);
-								}else if (potioneffectmessage.startsWith("&e,")){
-									plr.sendMessage(ChatColor.YELLOW + playermessage);
-								}else{
-									plr.sendMessage(potioneffectmessage);
-								}
+								String playermessage = potioneffectmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+								String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+								plr.sendMessage(colouredformattedmessage);
 							}
 						
 						} catch (IOException e) {
@@ -1110,43 +714,43 @@ public class MyPlugin extends PluginBase
 									 if (inputIndex >= 3){
 									 if(inputArray[2].equalsIgnoreCase("welmessage")){
 										file = new File(pluginDir + File.separatorChar + "welcomemessage.txt");
-										changemessage(cmd);
+										changemessage(null, cmd);
 										 }
 									 else if (inputArray[2].equalsIgnoreCase("dimmessage")){
 										file = new File(pluginDir + File.separatorChar + "dimensionmessage.txt");
-										changemessage(cmd);
+										changemessage(null, cmd);
 										 }
 								     else if (inputArray[2].equalsIgnoreCase("bedentermessage")){
 								    	file = new File(pluginDir + File.separatorChar + "bedentermessage.txt");
-										changemessage(cmd);
+										changemessage(null, cmd);
 									 }
 									 else if (inputArray[2].equalsIgnoreCase("animalmessage")){
 										 file = new File(pluginDir + File.separatorChar + "animalmessage.txt");
-										 changemessage(cmd);	
+										 changemessage(null, cmd);	
 										 	}
 									 else if (inputArray[2].equalsIgnoreCase("bedexitmessage")){
 										 file = new File(pluginDir + File.separatorChar + "bedexitmessage.txt");
-										 changemessage(cmd);
+										 changemessage(null, cmd);
 									 }
 									 else if (inputArray[2].equalsIgnoreCase("deathmessage")){
 										 file = new File(pluginDir + File.separatorChar + "deathmessage.txt");
-										 changemessage(cmd);
+										 changemessage(null, cmd);
 									 }
 									 else if (inputArray[2].equalsIgnoreCase("respawnmessage")){
 										 file = new File(pluginDir + File.separatorChar + "respawnmessage.txt");
-										 changemessage(cmd);
+										 changemessage(null, cmd);
 										 }
 									 else if (inputArray[2].equalsIgnoreCase("hangingmessage")){
 										 file = new File(pluginDir + File.separatorChar + "attackhangingmessage.txt");
-										 changemessage(cmd);
+										 changemessage(null, cmd);
 									 }
 									 else if (inputArray[2].equalsIgnoreCase("teleportmessage")){
 										 file = new File(pluginDir + File.separatorChar + "teleportmessage.txt");
-										 changemessage(cmd);
+										 changemessage(null, cmd);
 									 }
 									 else if (inputArray[2].equalsIgnoreCase("potionmessage")){
 										 file = new File(pluginDir + File.separatorChar + "potionmessage.txt");
-										 changemessage(cmd);
+										 changemessage(null, cmd);
 									 }
 									 else{
 										 System.out.println("Message changing help page:");
@@ -1179,7 +783,40 @@ public class MyPlugin extends PluginBase
 										 System.out.println("mes potionmessage <message> writes a new potion message");
 									 }
 					    }
-						}
+					    else if(inputArray[1].equalsIgnoreCase("sim")){
+					    	ei.isCancelled = true;
+					    	if(inputArray[2] == null){
+					    		System.out.println("Your current simplicity mode version is: " + version);
+					    	}else{
+					    		try{	
+					    			double d = Double.parseDouble(inputArray[2]);
+					    			String s = String.valueOf(d);
+					    				String decimal = s.substring(2, s.length());
+					    			if(d > 3.2){
+					    				System.out.println("You can't go into the future!");
+					    				System.out.println("The biggest version is 3.2");
+					    			}else if(d < 0.0){
+					    				System.out.println("The smallest version is 0.1!");
+					    				//Checks if there is only one decimal point
+					    			}else if(decimal.length() == 1){
+					    				version = d;
+					    				System.out.println("New simplicity mode version is: " + version);
+					    				File ver = new File(pluginDir + File.separator + "simplicitymode.txt");
+					    				BufferedWriter writer = new BufferedWriter(new FileWriter(ver));
+					    				writer.write(String.valueOf(version));
+					    				writer.close();
+					    			}else{
+					    				System.out.println("You can only specify a number with one decimal point! You can use .0 to specify a major version only!");
+					    			}
+					    			
+					    		}catch(NumberFormatException e){
+					    			System.out.println("You need a proper number!");
+					    			} catch (IOException e) {
+									e.printStackTrace();
+								}
+					    		}
+					    	}
+					    }
 					public void onPlayerInput(MC_Player plr, String message, MC_EventInfo ei) {	         
 						String inputLine = null;
 					    String inputField = null;
@@ -1482,6 +1119,39 @@ public class MyPlugin extends PluginBase
 									plr.sendMessage(ChatColor.RED + "You do not have permission to use this command");
 								}
 							}
+							else if(inputArray[1].equalsIgnoreCase("/sim")){
+								ei.isCancelled = true;
+					    	if(inputArray[2] == null){
+					    		plr.sendMessage("Your current simplicity mode version is: " + version);
+					    	}else{
+					    		try{	
+					    			double d = Double.parseDouble(inputArray[2]);
+					    			String s = String.valueOf(d);
+					    			String decimal = s.substring(2, s.length());
+					    			if(d > 3.2){
+					    				plr.sendMessage("You can't go into the future!");
+					    				plr.sendMessage("The biggest version is 3.2");
+					    			}else if(d < 0.1){
+					    				plr.sendMessage("The smallest version is 0.1!");
+					    				//Checks if there is only one decimal point
+					    			}else if(decimal.length() == 1){
+					    				version = d;
+					    				plr.sendMessage("New simplicity mode version is: " + version);
+					    				File ver = new File(pluginDir + File.separator + "simplicitymode.txt");
+					    				BufferedWriter writer = new BufferedWriter(new FileWriter(ver));
+					    				writer.write(String.valueOf(version));
+					    				writer.close();
+					    			}else{
+					    				System.out.println("You can only specify a number with one decimal point! You can use .0 to specify a major version only!");
+					    			}
+					    			
+					    		}catch(NumberFormatException e){
+					    			plr.sendMessage("You need a proper number!");
+					    			} catch (IOException e) {
+									plr.sendMessage("Error with writing version to file!");
+								}
+					    		}
+					    	}
 					        }
 					private String getDate() {
 						Date date = new Date();
@@ -1629,157 +1299,13 @@ public class MyPlugin extends PluginBase
 						 		String newmessage = inputArray[3];
 						 		bw.write(newmessage);
 						 	}else{
-						 		plr.sendMessage(ChatColor.RED + "Either there was no message or the message exceeded 27 words. Please edit the file manually and then tell me the amount of words you would like to have as the limit");
-						 		}
-							 bw.close();
-					} catch (IOException e) {
-					            e.printStackTrace();
-					        } finally {
-					        	server.broadcastMessage("Welcome message edited!");
-					        }
-					}
-					}
-					private void changemessage(String message) {
-						String inputLine = null;
-					    String inputField = null;
-					    String inputArray[] = new String [20];
-					    int inputIndex = 0;
-					    int charIndex = 0;	
-					    inputIndex = 0;
-					    inputLine = message.trim();		
-					    // Parse the input string and put each "word" in each element in inputArray[] starting at subscript 1
-
-					    while ((inputLine.length() > 0) && (inputIndex < 20)) {
-					        charIndex = inputLine.indexOf(' ');
-					        if (charIndex < 0) { 
-					            inputField = inputLine.substring(0, inputLine.length());
-					            inputLine = "";
-					            }
-					        else {
-					            inputField = inputLine.substring(0, charIndex);
-					            inputLine = inputLine.substring(charIndex, inputLine.length());
-					            inputLine = inputLine.trim();
-					            }					
-					        inputIndex = inputIndex + 1;
-					        inputArray[inputIndex] = inputField.trim();
-					        }
-					    
-						 if(inputArray[3].equalsIgnoreCase("check")){
-							 System.out.println("Message is called sucessfully!");
-						 }else{	 
-							 try {
-								FileWriter fw = new FileWriter(file);
-								BufferedWriter bw = new BufferedWriter(fw);
-							 if(inputIndex >=29){
-						 String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21] + " " + inputArray[22] + " " + inputArray[23] + " " + inputArray[24] + " " + inputArray[25] + " " + inputArray[26] + " " + inputArray[27] + " " + inputArray[28] + " " + inputArray[29];
-						    bw.write(newmessage);			             
-					            }			 
-							 else if(inputIndex >=28){
-								 String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21] + " " + inputArray[22] + " " + inputArray[23] + " " + inputArray[24] + " " + inputArray[25] + " " + inputArray[26] + " " + inputArray[27] + " " + inputArray[28];
-							     bw.write(newmessage);
-							 }
-						 	else if(inputIndex >=27){
-								 String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21] + " " + inputArray[22] + " " + inputArray[23] + " " + inputArray[24] + " " + inputArray[25] + " " + inputArray[26] + " " + inputArray[27];
-								 bw.write(newmessage);
-							 }
-						 	else if(inputIndex >=26){
-								 String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21] + " " + inputArray[22] + " " + inputArray[23] + " " + inputArray[24] + " " + inputArray[25] + " " + inputArray[26];
-								 bw.write(newmessage);
-							 }
-						 	else if(inputIndex >=25){
-								 String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21] + " " + inputArray[22] + " " + inputArray[23] + " " + inputArray[24] + " " + inputArray[25];
-								 bw.write(newmessage);
-							 }
-						 	else if(inputIndex >=24){
-								 String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21] + " " + inputArray[22] + " " + inputArray[23] + " " + inputArray[24];
-								 bw.write(newmessage);
-							 }
-						 	else if(inputIndex >=23){
-								 String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21] + " " + inputArray[22] + " " + inputArray[23];
-								 bw.write(newmessage);
-							 }
-						 	else if(inputIndex >=22){
-								 String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21] + " " + inputArray[22];
-								 bw.write(newmessage);
-							 }				
-						 	else if(inputIndex >=21){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20] + " " + inputArray[21];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=20){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19] + " " + inputArray[20];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=19){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18] + " " + inputArray[19];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=18){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17] + " " + inputArray[18];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=17){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16] + " " + inputArray[17];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=16){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15] + " " + inputArray[16];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=15){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14] + " " + inputArray[15];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=14){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13] + " " + inputArray[14];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=13){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12] + " " + inputArray[13];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=12){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11] + " " + inputArray[12];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=11){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10] + " " + inputArray[11];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=10){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9] + " " + inputArray[10];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=9){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8] + " " + inputArray[9];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=8){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7] + " " + inputArray[8];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=7){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6] + " " + inputArray[7];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=6){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5] + " " + inputArray[6];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=5){
-						 		String newmessage = inputArray[3] + " " + inputArray[4] + " " + inputArray[5];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=4){
-						 		String newmessage = inputArray[3] + " " + inputArray[4];
-						 		bw.write(newmessage);
-						 	}
-							else if(inputIndex >=3){
-						 		String newmessage = inputArray[3];
-						 		bw.write(newmessage);
-						 	}else{
+						 		if(plr !=null){
+						 		plr.sendMessage(ChatColor.RED + "Either there was no message or the message exceeded 27 words. Please edit the file manually and then tell me the amount of words you would like to have as the limit");	
+						 		}else{
 						 		System.out.println("Either there was no message or the message exceeded 27 words. Please edit the file manually and then tell me the amount of words you would like to have as the limit");
 						 		}
+						 		
+						 		}
 							 bw.close();
 					} catch (IOException e) {
 					            e.printStackTrace();
@@ -1788,61 +1314,19 @@ public class MyPlugin extends PluginBase
 					        }
 					}
 					}
+					
 					public void AnimalMessage(MC_Player plr, MC_Entity ent){
 					String entName = ent.getName();
 					if(ent instanceof MC_Player) {
 						System.out.println(entName + "got attacked by " + plr + ". Sending animal attack message.");
 					}
-					String aniattackmessage;
+					String animalattackmessage;
 					try{
 						reader = new BufferedReader(new FileReader(pluginDir + File.separatorChar + "animalmessage.txt"));
-						while ((aniattackmessage = reader.readLine()) != null) {
-							String playermessage = aniattackmessage.substring(3).replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
-							if(aniattackmessage.startsWith("&b,")){
-								plr.sendMessage(ChatColor.AQUA + playermessage);
-							}else if (aniattackmessage.startsWith("&0,")){
-								plr.sendMessage(ChatColor.BLACK + playermessage);
-							}else if (aniattackmessage.startsWith("&9,")){
-								plr.sendMessage(ChatColor.BLUE + playermessage);
-							}else if (aniattackmessage.startsWith("&l,")){
-								plr.sendMessage(ChatColor.BOLD + playermessage);
-							}else if (aniattackmessage.startsWith("&3,")){
-								plr.sendMessage(ChatColor.DARK_AQUA + playermessage);
-							}else if (aniattackmessage.startsWith("&1,")){
-								plr.sendMessage(ChatColor.DARK_BLUE + playermessage);
-							}else if (aniattackmessage.startsWith("&8,")){
-								plr.sendMessage(ChatColor.DARK_GRAY + playermessage);
-							}else if (aniattackmessage.startsWith("&2,")){
-								plr.sendMessage(ChatColor.DARK_GREEN + playermessage);
-							}else if (aniattackmessage.startsWith("&5,")){
-								plr.sendMessage(ChatColor.DARK_PURPLE + playermessage);
-							}else if (aniattackmessage.startsWith("&4,")){
-								plr.sendMessage(ChatColor.DARK_RED + playermessage);
-							}else if (aniattackmessage.startsWith("&6,")){
-								plr.sendMessage(ChatColor.GOLD + playermessage);
-							}else if (aniattackmessage.startsWith("&7,")){
-								plr.sendMessage(ChatColor.GRAY + playermessage);
-							}else if (aniattackmessage.startsWith("&a,")){
-								plr.sendMessage(ChatColor.GREEN + playermessage);
-							}else if (aniattackmessage.startsWith("&o,")){
-								plr.sendMessage(ChatColor.ITALIC + playermessage);
-							}else if (aniattackmessage.startsWith("&d,")){
-								plr.sendMessage(ChatColor.LIGHT_PURPLE + playermessage);
-							}else if (aniattackmessage.startsWith("&k,")){
-								plr.sendMessage(ChatColor.MAGIC + playermessage);
-							}else if (aniattackmessage.startsWith("&c,")){
-								plr.sendMessage(ChatColor.RED + playermessage);
-							}else if (aniattackmessage.startsWith("&m,")){
-								plr.sendMessage(ChatColor.STRIKETHROUGH + playermessage);
-							}else if (aniattackmessage.startsWith("&n,")){
-								plr.sendMessage(ChatColor.UNDERLINE + playermessage);
-							}else if (aniattackmessage.startsWith("&f,")){
-								plr.sendMessage(ChatColor.WHITE + playermessage);
-							}else if (aniattackmessage.startsWith("&e,")){
-								plr.sendMessage(ChatColor.YELLOW + playermessage);
-							}else{
-								plr.sendMessage(aniattackmessage);
-							}
+						while ((animalattackmessage = reader.readLine()) != null) {
+							String playermessage = animalattackmessage.replaceAll("%PLAYER%", plr.getName()).replaceAll("%WORLD%", plr.getWorld().getName()).replaceAll("%ECONOMY%", String.valueOf(plr.getEconomyBalance()) ).replaceAll("%IP%", plr.getIPAddress()).replaceAll("&TIME%", getDate());
+							String colouredformattedmessage = playermessage.replaceAll("&b,", ChatColor.AQUA).replaceAll("&0,", ChatColor.BLACK).replaceAll("&9,", ChatColor.BLUE).replaceAll("&l,", ChatColor.BOLD).replaceAll("&3,", ChatColor.DARK_AQUA).replaceAll("&1,", ChatColor.DARK_BLUE).replaceAll("&8,", ChatColor.DARK_GRAY).replaceAll("&2,", ChatColor.DARK_GREEN).replaceAll("&5,", ChatColor.DARK_PURPLE).replaceAll("&4,", ChatColor.DARK_RED).replaceAll("&6,", ChatColor.GOLD).replaceAll("&7,", ChatColor.GRAY).replaceAll("&a,", ChatColor.GREEN).replaceAll("&o,", ChatColor.ITALIC).replaceAll("&d,", ChatColor.LIGHT_PURPLE).replaceAll("&k,", ChatColor.MAGIC).replaceAll("&c,", ChatColor.RED).replaceAll("&r,", ChatColor.RESET).replaceAll("&m", ChatColor.STRIKETHROUGH).replaceAll("&n,", ChatColor.UNDERLINE).replaceAll("&f,", ChatColor.WHITE).replaceAll("&e,", ChatColor.YELLOW);
+							plr.sendMessage(colouredformattedmessage);
 						}
 					
 					} catch (IOException e) {
