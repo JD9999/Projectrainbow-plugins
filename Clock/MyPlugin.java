@@ -3,7 +3,6 @@ package Clock;
 import PluginReference.*;
 
 import java.util.Date;
-import java.util.TimerTask;
 
 public class MyPlugin extends PluginBase{
 
@@ -23,7 +22,7 @@ public class MyPlugin extends PluginBase{
 	public PluginInfo getPluginInfo() 
 	{ 
 		PluginInfo info = new PluginInfo();
-		info.description = "A clock: version 1.2 started";
+		info.description = "A clock: version 1.3 started";
 		return info;
 	}
 	public void onPlayerInput(MC_Player plr, String msg, MC_EventInfo ei)
